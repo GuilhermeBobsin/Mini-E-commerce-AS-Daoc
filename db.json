@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Cafeteira Elétrica",
+      "description": "Cafeteira 1.5L, 127V.",
+      "price": 199.9,
+      "image": "https://via.placeholder.com/400x300?text=Cafeteira",
+      "stock": 5
+    },
+    {
+      "id": "2",
+      "name": "Mochila Tech",
+      "description": "Mochila 20L, resistente à água.",
+      "price": 249.5,
+      "image": "https://via.placeholder.com/400x300?text=Mochila",
+      "stock": 0
+    },
+    {
+      "id": "a34e",
+      "name": "aaa",
+      "description": "sss",
+      "price": 22,
+      "image": "222",
+      "stock": 22
+    },
+    {
+      "id": "3617",
+      "name": "Teste",
+      "description": "esse é um produto teste",
+      "price": 255.5,
+      "image": "https://cdn.awsli.com.br/2004/2004471/produto/278043856/produto-teste_6355364765230299551-5dca5b60c67efea46e15917435354683-640-0-4meiyrif8i.jpg",
+      "stock": 2
+    }
+  ]
+}
