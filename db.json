@@ -1,35 +1,91 @@
 {
   "products": [
     {
-      "id": "1",
       "name": "Cafeteira Elétrica",
       "description": "Cafeteira 1.5L, 127V.",
       "price": 199.9,
-      "image": "https://via.placeholder.com/400x300?text=Cafeteira",
-      "stock": 5
+      "image": "https://catalog.livelo.com.br/MZL%2FPRD3816096%2FSKU4726833%2FMEDIUM%2F464174111%2FCafeteira-Eltrica-Philco-PCF40A-Preta-Preto-220V.jpeg",
+      "stock": 5,
+      "id": "1"
     },
     {
       "id": "2",
       "name": "Mochila Tech",
       "description": "Mochila 20L, resistente à água.",
       "price": 249.5,
-      "image": "https://via.placeholder.com/400x300?text=Mochila",
+      "image": "https://cdn.cs.1worldsync.com/8e/58/8e589421-5117-4a88-813a-59ab2b5c4399.jpg",
       "stock": 0
     },
     {
       "id": "a34e",
-      "name": "aaa",
-      "description": "sss",
-      "price": 22,
-      "image": "222",
-      "stock": 22
+      "name": "Smartwatch Fit",
+      "description": "Relógio inteligente com monitor cardíaco e notificações.",
+      "price": 299.9,
+      "image": "https://image-us.samsung.com/SamsungUS/samsungbusiness/mobile/wearables/smartwatches/gw-fe-pink-gold/SM-R861_001_Front_Pink_Gold_1600x1200.jpg?$default-400-jpg$",
+      "stock": 12
     },
     {
       "id": "3617",
-      "name": "Teste",
-      "description": "esse é um produto teste",
-      "price": 255.5,
-      "image": "https://cdn.awsli.com.br/2004/2004471/produto/278043856/produto-teste_6355364765230299551-5dca5b60c67efea46e15917435354683-640-0-4meiyrif8i.jpg",
+      "name": "Fone Bluetooth Pro",
+      "description": "Fone de ouvido sem fio com cancelamento de ruído.",
+      "price": 189.9,
+      "image": "https://www.philips.com.br/c-dam/b2c/category-pages/sound-and-vision/headphones/master/homepage/hero-product-shb2515.png",
+      "stock": 8
+    },
+    {
+      "id": "5011",
+      "name": "Teclado Mecânico RGB",
+      "description": "Teclado mecânico com iluminação RGB e switches blue.",
+      "price": 349.9,
+      "image": "https://a-static.mlcdn.com.br/470x352/teclado-mecanico-gamer-redragon-dark-avenger-rgb-switch-outemu-blue-abnt2-k568rgb-1/onlineshopping/pog031/258899e82ab0113ca376885b0bbc7817.jpeg",
+      "stock": 15
+    },
+    {
+      "id": "5012",
+      "name": "Mouse Gamer X",
+      "description": "Mouse gamer 7200 DPI, 7 botões programáveis.",
+      "price": 129.9,
+      "image": "https://blog.akihana.com.br/wp-content/uploads/2025/04/Logitech-G203.jpg",
+      "stock": 30
+    },
+    {
+      "id": "5013",
+      "name": "Monitor 24'' Full HD",
+      "description": "Monitor 24 polegadas, 75Hz, painel IPS.",
+      "price": 899.9,
+      "image": "https://catalog.livelo.com.br/MZL%2FPRD3823810%2FSKU4736536%2FMEDIUM%2F412876903%2FMonitor-Gamer-AOC-24-Full-HD-180Hz-Gaming-G4-24G4P-HDMI-DisplayPort-Base-Ajustvel.jpeg",
+      "stock": 7
+    },
+    {
+      "id": "5014",
+      "name": "Cadeira Gamer Comfort",
+      "description": "Cadeira ergonômica com ajustes e apoio lombar.",
+      "price": 999.9,
+      "image": "https://catalog.livelo.com.br/MZL%2FPRD3055430%2FSKU3766227%2FMEDIUM%2F296311070%2FCadeira-Gamer-Techni-Sport-Reclinvel-Giratria.jpeg",
+      "stock": 4
+    },
+    {
+      "id": "5015",
+      "name": "HD Externo 1TB",
+      "description": "HD portátil 1TB, USB 3.0.",
+      "price": 329.9,
+      "image": "https://tryb.com.br/img/400x300/hd-externo-1-tera-2-5-seagate-3-0-usb-1000gb_18608.jpg",
+      "stock": 20
+    },
+    {
+      "id": "5016",
+      "name": "Carregador Turbo 25W",
+      "description": "Carregador rápido compatível com Android.",
+      "price": 89.9,
+      "image": "https://tryb.com.br/img/400x300/carregador-turbo-power-30-micro-usbv8-motorola_21440.jpg",
+      "stock": 50
+    },
+    {
+      "id": "6ee2",
+      "name": "Notebook positivo BOOM 4GB",
+      "description": "Notebook de entrada para uso doméstico",
+      "price": 2199.9,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlrXmQvwQaSY4hk89uRorkE-dCCTZb4FtsYg&s",
       "stock": 2
     }
   ]

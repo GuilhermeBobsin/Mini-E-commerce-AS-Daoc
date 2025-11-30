@@ -22,7 +22,7 @@ export default function Cart(){
       <h1 className="text-2xl font-bold mb-4">Carrinho</h1>
       <div className="space-y-4">
         {items.map(item => (
-          <div key={item.id} className="bg-white p-4 rounded shadow flex items-center gap-4">
+          <div key={item.id} className="bg-white p-6 rounded shadow flex items-center gap-4">
             <div className="flex-1">
               <h3 className="font-semibold">{item.name}</h3>
               <p>Preço unitário: R$ {item.price.toFixed(2)}</p>
