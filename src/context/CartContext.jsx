@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-const CartContext = createContext();
+// Criar o contexto do carrinho
+export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
@@ -20,11 +21,19 @@ export function CartProvider({ children }) {
     setItems(prev => {
       const found = prev.find(i => i.id === product.id);
       if (found) {
-        // increment respecting stock
         const newQty = Math.min(found.qty + qty, product.stock);
         return prev.map(i => i.id === product.id ? { ...i, qty: newQty } : i);
       }
-      return [...prev, { id: product.id, name: product.name, price: product.price, qty: Math.min(qty, product.stock), stock: product.stock }];
+      return [
+        ...prev,
+        { 
+          id: product.id, 
+          name: product.name, 
+          price: product.price, 
+          qty: Math.min(qty, product.stock), 
+          stock: product.stock 
+        }
+      ];
     });
   };
 
@@ -39,12 +48,15 @@ export function CartProvider({ children }) {
   const total = items.reduce((s, i) => s + i.price * i.qty, 0);
 
   return (
-    <CartContext.Provider value={{ items, addToCart, updateQty, removeItem, clearCart, total, setItems }}>
+    <CartContext.Provider value={{
+      items, addToCart, updateQty, removeItem, clearCart, total, setItems
+    }}>
       {children}
     </CartContext.Provider>
   );
 }
 
-export function useCart(){
+// 🔥 Hook correto
+export function useCart() {
   return useContext(CartContext);
 }

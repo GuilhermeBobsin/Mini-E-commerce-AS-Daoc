@@ -29,4 +29,7 @@ export const updateProduct = (id, data) =>
   }).then(handleResp);
 
 export const deleteProduct = (id) =>
-  fetch(`${BASE}/products/${id}`, { method: "DELETE" }).then(handleResp);
+  fetch(`${BASE}/products/${id}`, {
+    method: "DELETE",
+  }).then(handleResp);
+
