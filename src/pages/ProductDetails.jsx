@@ -4,7 +4,7 @@ import { getProductById } from "../api/productsService";
 import Loading from "../components/Loading";
 import { useCart } from "../context/CartContext";
 
-export default function ProductDetails(){
+export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -12,19 +12,19 @@ export default function ProductDetails(){
   const { items, addToCart } = useCart();
   const navigate = useNavigate();
 
-  useEffect(()=>{
+  useEffect(() => {
     setLoading(true);
     getProductById(id)
       .then(setProduct)
-      .catch(e => setError(e.message || "Erro"))
-      .finally(()=>setLoading(false));
+      .catch((e) => setError(e.message || "Erro"))
+      .finally(() => setLoading(false));
   }, [id]);
 
   if (loading) return <Loading />;
   if (error) return <div className="text-red-600">{error}</div>;
   if (!product) return <div>Produto não encontrado</div>;
 
-  const inCart = items.find(i => i.id === product.id);
+  const inCart = items.find((i) => i.id === product.id);
   const reachedStock = inCart ? inCart.qty >= product.stock : false;
 
   const handleAdd = () => {
@@ -34,28 +34,81 @@ export default function ProductDetails(){
     navigate("/carrinho");
   };
 
-  return (
-    <div className="bg-white p-6 rounded shadow md:flex gap-6">
-      <img src={product.image} alt={product.name} className="w-full md:w-1/3 h-64 object-cover rounded" />
-      <div className="flex-1">
-        <h2 className="text-2xl font-bold">{product.name}</h2>
-        <p className="mt-2 text-gray-700">{product.description}</p>
-        <p className="mt-4 text-xl font-semibold">R$ {product.price.toFixed(2)}</p>
-        <p className="mt-2">Estoque: {product.stock}</p>
+  const handleEdit = () => {
+    navigate(`/editar/${id}`);  // Redireciona para a página de edição
+  };
 
-        {product.stock === 0 ? (
-          <button className="mt-4 w-full bg-gray-400 text-white py-2 rounded" disabled>Produto Esgotado</button>
-        ) : (
-          <>
+  return (
+    <div className="bg-white p-8 rounded-lg shadow-lg max-w-7xl mx-auto mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Imagem do Produto */}
+        <div className="flex justify-center items-center">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="max-w-full h-auto object-contain rounded-lg shadow-lg"
+          />
+        </div>
+
+        {/* Detalhes do Produto */}
+        <div className="flex flex-col justify-start">
+          <h2 className="text-3xl font-semibold text-gray-900">{product.name}</h2>
+          <p className="mt-2 text-lg text-gray-600">{product.description}</p>
+
+          {/* Preço */}
+          <div className="mt-4">
+            <span className="text-3xl font-bold text-green-600">
+              R$ {product.price.toFixed(2)}
+            </span>
+            <p className="text-sm text-gray-500">Preço à vista</p>
+          </div>
+
+          {/* Estoque */}
+          <div className="mt-4">
+            <p className="text-lg text-gray-700">Estoque disponível: {product.stock}</p>
+            {product.stock === 0 && (
+              <p className="text-red-500 text-sm mt-2">Produto fora de estoque!</p>
+            )}
+          </div>
+
+          {/* Ações */}
+          <div className="mt-6 flex flex-col gap-4">
+            {product.stock === 0 ? (
+              <button
+                className="w-44 py-3 bg-gray-400 text-white rounded-lg cursor-not-allowed font-bold"
+                disabled
+              >
+                Produto Esgotado
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={handleAdd}
+                  disabled={reachedStock}
+                  className={`w-44 py-3 rounded-lg text-white transition-colors duration-200 ${
+                    reachedStock ? "bg-gray-400 cursor-not-allowed font-bold" : "bg-yellow-600 hover:bg-yellow-700 font-bold"
+                  }`}
+                >
+                  {reachedStock ? "Estoque máximo atingido" : "Adicionar ao Carrinho"}
+                </button>
+                <button
+                  onClick={() => navigate("/carrinho")}
+                  className="w-44 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold"
+                >
+                  Ir para o Carrinho
+                </button>
+              </>
+            )}
+
+            {/* Botão de Editar Produto */}
             <button
-              onClick={handleAdd}
-              disabled={reachedStock}
-              className={`mt-4 w-full py-2 rounded text-white ${reachedStock ? 'bg-gray-400' : 'bg-green-600'}`}
+              onClick={handleEdit}
+              className="w-44 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-bold"
             >
-              {reachedStock ? 'Estoque máximo atingido' : 'Adicionar ao Carrinho'}
+              Editar Produto
             </button>
-          </>
-        )}
+          </div>
+        </div>
       </div>
     </div>
   );

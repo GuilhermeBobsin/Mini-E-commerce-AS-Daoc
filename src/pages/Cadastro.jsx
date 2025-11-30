@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
 import { createProduct } from "../api/productsService";
 import { useNavigate } from "react-router-dom";
-import Alert from "../components/Alert";
 
-export default function Cadastro(){
+export default function Cadastro() {
   const navigate = useNavigate();
   const nameRef = useRef();
   const [form, setForm] = useState({ name: "", description: "", price: "", image: "", stock: "" });
   const [errors, setErrors] = useState({});
+  const [showImageHint, setShowImageHint] = useState(false);
 
   const validate = () => {
     const e = {};
@@ -17,7 +17,6 @@ export default function Cadastro(){
     if (!form.image.trim()) e.image = "URL da imagem obrigatória";
     if (form.stock === "" || isNaN(Number(form.stock)) || Number(form.stock) < 0) e.stock = "Estoque inválido (≥ 0)";
     setErrors(e);
-    // foco no primeiro inválido
     if (Object.keys(e).length > 0) {
       if (e.name) nameRef.current?.focus();
       else if (e.description) document.getElementById("description")?.focus();
@@ -52,42 +51,52 @@ export default function Cadastro(){
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block">Nome</label>
-          <input ref={nameRef} id="name" value={form.name} onChange={e=>setForm({...form, name:e.target.value})}
+          <input ref={nameRef} id="name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
             className={`w-full border p-2 rounded ${errors.name ? 'border-red-500' : ''}`} />
           {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
         </div>
 
         <div>
           <label className="block">Descrição</label>
-          <textarea id="description" value={form.description} onChange={e=>setForm({...form, description:e.target.value})}
-            className={`w-full border p-2 rounded ${errors.description ? 'border-red-500' : ''}`}/>
+          <textarea id="description" value={form.description} onChange={e => setForm({ ...form, description: e.target.value })}
+            className={`w-full border p-2 rounded ${errors.description ? 'border-red-500' : ''}`} />
           {errors.description && <p className="text-red-600 text-sm mt-1">{errors.description}</p>}
         </div>
 
         <div>
           <label>Preço</label>
-          <input id="price" value={form.price} onChange={e=>setForm({...form, price:e.target.value})}
+          <input id="price" value={form.price} onChange={e => setForm({ ...form, price: e.target.value })}
             className={`w-full border p-2 rounded ${errors.price ? 'border-red-500' : ''}`} />
           {errors.price && <p className="text-red-600 text-sm mt-1">{errors.price}</p>}
         </div>
 
         <div>
           <label>URL da imagem</label>
-          <input id="image" value={form.image} onChange={e=>setForm({...form, image:e.target.value})}
-            className={`w-full border p-2 rounded ${errors.image ? 'border-red-500' : ''}`} />
+          <div className="relative">
+            <input id="image" value={form.image} onChange={e => setForm({ ...form, image: e.target.value })}
+              className={`w-full border p-2 rounded ${errors.image ? 'border-red-500' : ''}`}
+              onMouseEnter={() => setShowImageHint(true)}
+              onMouseLeave={() => setShowImageHint(false)}
+            />
+            {showImageHint && (
+              <p className="absolute text-sm text-gray-600 mt-1 bg-yellow-100 p-2 rounded-md shadow-md w-full">
+                Para uma melhor visualização, adicione uma imagem de dimensões 300x400.
+              </p>
+            )}
+          </div>
           {errors.image && <p className="text-red-600 text-sm mt-1">{errors.image}</p>}
         </div>
 
         <div>
           <label>Estoque</label>
-          <input id="stock" value={form.stock} onChange={e=>setForm({...form, stock:e.target.value})}
+          <input id="stock" value={form.stock} onChange={e => setForm({ ...form, stock: e.target.value })}
             className={`w-full border p-2 rounded ${errors.stock ? 'border-red-500' : ''}`} />
           {errors.stock && <p className="text-red-600 text-sm mt-1">{errors.stock}</p>}
         </div>
 
         <div className="flex gap-2">
           <button className="px-4 py-2 bg-green-600 text-white rounded">Criar</button>
-          <button type="button" onClick={()=>navigate("/")} className="px-4 py-2 border rounded">Cancelar</button>
+          <button type="button" onClick={() => navigate("/")} className="px-4 py-2 border rounded">Cancelar</button>
         </div>
       </form>
     </div>

@@ -18,14 +18,11 @@ export default function App() {
 
       <main className="container mx-auto p-4">
         <Routes>
-
-          {}
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} /> {}
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/produto/:id" element={<ProductDetails />} />
 
-          {}
           <Route
             path="/carrinho"
             element={
@@ -53,7 +50,6 @@ export default function App() {
             }
           />
 
-          {}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
