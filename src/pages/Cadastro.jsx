@@ -5,24 +5,33 @@ import { useNavigate } from "react-router-dom";
 export default function Cadastro() {
   const navigate = useNavigate();
   const nameRef = useRef();
-  const [form, setForm] = useState({ name: "", description: "", price: "", image: "", stock: "" });
+
+  const [form, setForm] = useState({
+    name: "",
+    description: "",
+    price: "",
+    image: "",
+    stock: ""
+  });
+
   const [errors, setErrors] = useState({});
   const [showImageHint, setShowImageHint] = useState(false);
 
   const validate = () => {
     const e = {};
+
     if (!form.name.trim()) e.name = "Nome obrigatório";
     if (!form.description.trim()) e.description = "Descrição obrigatória";
-    if (form.price === "" || isNaN(Number(form.price)) || Number(form.price) < 0) e.price = "Preço inválido (≥ 0)";
+    if (form.price === "" || isNaN(Number(form.price)) || Number(form.price) < 0)
+      e.price = "Preço inválido (≥ 0)";
     if (!form.image.trim()) e.image = "URL da imagem obrigatória";
-    if (form.stock === "" || isNaN(Number(form.stock)) || Number(form.stock) < 0) e.stock = "Estoque inválido (≥ 0)";
+    if (form.stock === "" || isNaN(Number(form.stock)) || Number(form.stock) < 0)
+      e.stock = "Estoque inválido (≥ 0)";
+
     setErrors(e);
+
     if (Object.keys(e).length > 0) {
       if (e.name) nameRef.current?.focus();
-      else if (e.description) document.getElementById("description")?.focus();
-      else if (e.price) document.getElementById("price")?.focus();
-      else if (e.image) document.getElementById("image")?.focus();
-      else if (e.stock) document.getElementById("stock")?.focus();
       return false;
     }
     return true;
@@ -31,6 +40,7 @@ export default function Cadastro() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     if (!validate()) return;
+
     try {
       await createProduct({
         name: form.name,
@@ -39,6 +49,7 @@ export default function Cadastro() {
         image: form.image,
         stock: Number(form.stock)
       });
+
       navigate("/");
     } catch (err) {
       alert("Erro ao criar produto: " + err.message);
@@ -46,59 +57,106 @@ export default function Cadastro() {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded shadow">
-      <h1 className="text-xl font-bold mb-4">Cadastro de Produto</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block">Nome</label>
-          <input ref={nameRef} id="name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.name ? 'border-red-500' : ''}`} />
-          {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 p-4">
 
-        <div>
-          <label className="block">Descrição</label>
-          <textarea id="description" value={form.description} onChange={e => setForm({ ...form, description: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.description ? 'border-red-500' : ''}`} />
-          {errors.description && <p className="text-red-600 text-sm mt-1">{errors.description}</p>}
-        </div>
+      <div className="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8">
 
-        <div>
-          <label>Preço</label>
-          <input id="price" value={form.price} onChange={e => setForm({ ...form, price: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.price ? 'border-red-500' : ''}`} />
-          {errors.price && <p className="text-red-600 text-sm mt-1">{errors.price}</p>}
-        </div>
+        <h1 className="text-3xl font-extrabold text-center mb-2">
+          📦 <span className="text-indigo-600">Cadastro</span> de Produto
+        </h1>
 
-        <div>
-          <label>URL da imagem</label>
+        <p className="text-center text-gray-500 mb-6">
+          Adicione um novo produto na GuriStore
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+
+          <input
+            ref={nameRef}
+            type="text"
+            placeholder="Nome do produto"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            className={`w-full border p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none ${
+              errors.name ? "border-red-500" : "border-gray-300"
+            }`}
+          />
+          {errors.name && <p className="text-red-500 text-sm text-center">{errors.name}</p>}
+
+          <textarea
+            placeholder="Descrição do produto"
+            value={form.description}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
+            className={`w-full border p-3 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none h-24 ${
+              errors.description ? "border-red-500" : "border-gray-300"
+            }`}
+          />
+          {errors.description && <p className="text-red-500 text-sm text-center">{errors.description}</p>}
+
+          {/* PREÇO */}
+          <input
+            type="number"
+            placeholder="Preço (R$)"
+            value={form.price}
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
+            className={`w-full border p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none ${
+              errors.price ? "border-red-500" : "border-gray-300"
+            }`}
+          />
+          {errors.price && <p className="text-red-500 text-sm text-center">{errors.price}</p>}
+
           <div className="relative">
-            <input id="image" value={form.image} onChange={e => setForm({ ...form, image: e.target.value })}
-              className={`w-full border p-2 rounded ${errors.image ? 'border-red-500' : ''}`}
+            <input
+              type="text"
+              placeholder="URL da imagem do produto"
+              value={form.image}
+              onChange={(e) => setForm({ ...form, image: e.target.value })}
               onMouseEnter={() => setShowImageHint(true)}
               onMouseLeave={() => setShowImageHint(false)}
+              className={`w-full border p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none ${
+                errors.image ? "border-red-500" : "border-gray-300"
+              }`}
             />
+
             {showImageHint && (
-              <p className="absolute text-sm text-gray-600 mt-1 bg-yellow-100 p-2 rounded-md shadow-md w-full">
-                Para uma melhor visualização, adicione uma imagem de dimensões 300x400.
+              <p className="absolute text-sm text-gray-600 mt-2 bg-yellow-100 p-2 rounded-md shadow-md w-full z-10">
+                Dica: Use imagens 300x400 para melhor visual.
               </p>
             )}
           </div>
-          {errors.image && <p className="text-red-600 text-sm mt-1">{errors.image}</p>}
-        </div>
+          {errors.image && <p className="text-red-500 text-sm text-center">{errors.image}</p>}
 
-        <div>
-          <label>Estoque</label>
-          <input id="stock" value={form.stock} onChange={e => setForm({ ...form, stock: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.stock ? 'border-red-500' : ''}`} />
-          {errors.stock && <p className="text-red-600 text-sm mt-1">{errors.stock}</p>}
-        </div>
+          <input
+            type="number"
+            placeholder="Quantidade em estoque"
+            value={form.stock}
+            onChange={(e) => setForm({ ...form, stock: e.target.value })}
+            className={`w-full border p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none ${
+              errors.stock ? "border-red-500" : "border-gray-300"
+            }`}
+          />
+          {errors.stock && <p className="text-red-500 text-sm text-center">{errors.stock}</p>}
 
-        <div className="flex gap-2">
-          <button className="px-4 py-2 bg-green-600 text-white rounded">Criar</button>
-          <button type="button" onClick={() => navigate("/")} className="px-4 py-2 border rounded">Cancelar</button>
-        </div>
-      </form>
+          <div className="flex gap-3">
+            <button
+              type="submit"
+              className="flex-1 bg-indigo-600 text-white py-3 rounded-full font-bold hover:bg-indigo-700 transition"
+            >
+              Criar Produto
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="flex-1 border py-3 rounded-full hover:bg-gray-100"
+            >
+              Cancelar
+            </button>
+          </div>
+
+        </form>
+
+      </div>
     </div>
   );
 }
