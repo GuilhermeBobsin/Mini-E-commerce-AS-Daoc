@@ -17,57 +17,42 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white shadow">
+    <header className="bg-white shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center">
-        
-        <Link to="/" className="text-xl font-bold">
-          MiniEcom
+        <Link to="/" className="text-xl font-bold text-gray-800">
+          {"</MiniECom>"}
         </Link>
 
-        <nav className="flex gap-4 items-center">
-
-          {}
-          {user && (
-            <Link
-              to="/cadastro"
-              className="px-3 py-1 border rounded hover:bg-gray-100"
-            >
-              Cadastro
-            </Link>
-          )}
-
+        <nav className="flex gap-6 items-center">
           <Link
             to="/carrinho"
-            className="px-3 py-1 border rounded hover:bg-gray-100"
+            className="flex items-center px-4 py-2 border rounded-md hover:bg-gray-100"
           >
+            <i className="fas fa-shopping-cart mr-2"></i>
             Carrinho ({count})
           </Link>
 
-          {}
-          {user && (
+          {user ? (
             <button
               onClick={handleLogout}
-              className="px-3 py-1 border rounded bg-red-500 text-white hover:bg-red-600"
+              className="px-4 py-2 border rounded-md bg-red-500 text-white hover:bg-red-600"
             >
-              Logout
+              Fazer logout
             </button>
-          )}
-
-          {}
-          {!user && (
+          ) : (
             <>
               <Link
                 to="/login"
-                className="px-3 py-1 border rounded bg-blue-500 text-white hover:bg-blue-600"
+                className="px-4 py-2 border rounded-md bg-blue-500 text-white hover:bg-blue-600"
               >
-                Login
+                Entrar
               </Link>
 
               <Link
                 to="/register"
-                className="px-3 py-1 border rounded bg-green-500 text-white hover:bg-green-600"
+                className="px-4 py-2 border rounded-md bg-green-500 text-white hover:bg-green-600"
               >
-                Registrar
+                Crie sua conta
               </Link>
             </>
           )}

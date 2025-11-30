@@ -1,22 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// ProductCard.js
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function ProductCard({ product }) {
+const ProductCard = ({ product }) => {
   return (
-    <div className="bg-white p-4 rounded shadow flex flex-col">
-      <img src={product.image} alt={product.name} className="h-40 object-cover rounded" />
-      <h3 className="font-semibold mt-2">{product.name}</h3>
-      <p className="text-gray-600">R$ {product.price.toFixed(2)}</p>
-      {product.stock === 0 ? (
-        <span className="text-red-600 font-bold mt-2">Esgotado</span>
-      ) : (
-        <span className="text-green-600 font-medium mt-2">Em estoque: {product.stock}</span>
-      )}
-      <div className="mt-auto pt-4">
-        <Link to={`/produto/${product.id}`} className="block text-center w-full bg-blue-600 text-white py-2 rounded">
-          Ver Detalhes
-        </Link>
-      </div>
+    <div className="bg-white rounded-lg shadow-lg p-4 flex flex-col items-center text-center h-full">
+      <img
+        src={product.image}
+        alt={product.name}
+        className="w-full h-48 object-contain rounded-md mb-4"
+      />
+      <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
+      <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+      <p className="text-xl font-bold text-blue-600 mt-2">
+        R$ {product.price.toFixed(2)}
+      </p>
+      <p className="text-sm text-green-600 mt-1">
+        {product.stock > 0 ? `Em estoque: ${product.stock}` : 'Esgotado'}
+      </p>
+
+      {/* Alinha o botão ao final do card */}
+      <div className="flex-grow"></div>
+      <Link
+        to={`/produto/${product.id}`}
+        className="mt-4 px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300"
+      >
+        Ver Detalhes
+      </Link>
     </div>
   );
-}
+};
+
+export default ProductCard;
