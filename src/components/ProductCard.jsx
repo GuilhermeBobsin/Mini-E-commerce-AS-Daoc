@@ -1,31 +1,56 @@
-// ProductCard.js
-import React from 'react';
-import { Link } from 'react-router-dom';
+
+import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  const semEstoque = product.stock === 0;
+
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 flex flex-col items-center text-center h-full">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-full h-48 object-contain rounded-md mb-4"
-      />
-      <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-      <p className="text-sm text-gray-600 mt-2">{product.description}</p>
-      <p className="text-xl font-bold text-blue-600 mt-2">
-        R$ {product.price.toFixed(2)}
-      </p>
-      <p className="text-sm text-green-600 mt-1">
-        {product.stock > 0 ? `Em estoque: ${product.stock}` : 'Esgotado'}
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-4 flex flex-col h-full border">
+
+      <div className="flex justify-center items-center mb-4 h-52">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="max-h-full object-contain transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+
+      <h3 className="text-lg font-semibold text-gray-900">
+        {product.name}
+      </h3>
+
+      
+      <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+        {product.description}
       </p>
 
-      {/* Alinha o botão ao final do card */}
-      <div className="flex-grow"></div>
+      <p className="text-2xl font-bold text-green-600 mt-3">
+        R$ {product.price.toFixed(2)}
+      </p>
+
+
+      <p
+        className={`text-sm mt-1 font-medium ${
+          semEstoque ? "text-red-600" : "text-gray-500"
+        }`}
+      >
+        {semEstoque ? "Esgotado" : `Estoque: ${product.stock}`}
+      </p>
+
+      <div className="flex-grow" />
+
       <Link
         to={`/produto/${product.id}`}
-        className="mt-4 px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300"
+        className={`mt-4 w-full text-center px-4 py-3 rounded-xl font-bold transition
+          ${
+            semEstoque
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+              : "bg-yellow-600 text-white hover:bg-yellow-700"
+          }
+        `}
       >
-        Ver Detalhes
+        {semEstoque ? "Indisponível" : "Ver Produto"}
       </Link>
     </div>
   );

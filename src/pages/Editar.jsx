@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getProductById, updateProduct, deleteProduct } from "../api/productsService"; // Certifique-se de que deleteProduct está importado
+import { getProductById, updateProduct, deleteProduct } from "../api/productsService";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Editar() {
@@ -33,6 +33,7 @@ export default function Editar() {
     if (form.price === "" || isNaN(Number(form.price)) || Number(form.price) < 0) e.price = "Preço inválido (≥ 0)";
     if (!form.image.trim()) e.image = "URL obrigatória";
     if (form.stock === "" || isNaN(Number(form.stock)) || Number(form.stock) < 0) e.stock = "Estoque inválido (≥ 0)";
+
     setErrors(e);
     if (Object.keys(e).length > 0) {
       if (e.name) nameRef.current?.focus();
@@ -45,6 +46,7 @@ export default function Editar() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     if (!validate()) return;
+
     try {
       await updateProduct(id, {
         name: form.name,
@@ -60,88 +62,146 @@ export default function Editar() {
   };
 
   const handleDelete = () => {
-    const confirmDelete = window.confirm("Tem certeza de que deseja excluir este produto?");
-    if (confirmDelete) {
+    if (window.confirm("⚠️ Tem certeza que deseja excluir este produto?")) {
       deleteProduct(id)
-        .then(() => {
-          navigate("/");
-        })
+        .then(() => navigate("/"))
         .catch((err) => alert("Erro ao excluir: " + err.message));
     }
   };
 
-  if (loading) return <div>Carregando...</div>;
-  if (!form) return <div>Produto não encontrado</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <p className="text-lg text-gray-600 animate-pulse">Carregando produto...</p>
+      </div>
+    );
+  }
+
+  if (!form) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <p className="text-lg text-red-500">Produto não encontrado 😢</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-6 rounded shadow">
-      <h1 className="text-xl font-bold mb-4">Editar Produto</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label>Nome</label>
-          <input
-            ref={nameRef}
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.name ? "border-red-500" : ""}`}
-          />
-          {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
-        </div>
-        <div>
-          <label>Descrição</label>
-          <textarea
-            id="description"
-            value={form.description}
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.description ? "border-red-500" : ""}`}
-          />
-          {errors.description && <p className="text-red-600 text-sm">{errors.description}</p>}
-        </div>
-        <div>
-          <label>Preço</label>
-          <input
-            value={form.price}
-            onChange={(e) => setForm({ ...form, price: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.price ? "border-red-500" : ""}`}
-          />
-          {errors.price && <p className="text-red-600 text-sm">{errors.price}</p>}
-        </div>
-        <div>
-          <label>URL imagem</label>
-          <input
-            value={form.image}
-            onChange={(e) => setForm({ ...form, image: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.image ? "border-red-500" : ""}`}
-          />
-          {errors.image && <p className="text-red-600 text-sm">{errors.image}</p>}
-        </div>
-        <div>
-          <label>Estoque</label>
-          <input
-            value={form.stock}
-            onChange={(e) => setForm({ ...form, stock: e.target.value })}
-            className={`w-full border p-2 rounded ${errors.stock ? "border-red-500" : ""}`}
-          />
-          {errors.stock && <p className="text-red-600 text-sm">{errors.stock}</p>}
-        </div>
+    <div className="bg-white min-h-screen py-12 px-4">
+      <div className="max-w-2xl mx-auto bg-gray-50 p-8 rounded-3xl shadow-xl border">
 
-        <div className="flex gap-2">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded">Salvar</button>
-          <button type="button" onClick={() => navigate("/")} className="px-4 py-2 border rounded">
-            Cancelar
+        <h1 className="text-3xl font-extrabold text-center mb-8">
+          ✏️ Editar Produto
+        </h1>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+
+          <div>
+            <label className="text-sm font-semibold">Nome do produto</label>
+            <input
+              ref={nameRef}
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              placeholder="Ex: Camiseta dos Guri"
+              className={`mt-1 w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 outline-none ${
+                errors.name ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.name && (
+              <p className="text-red-600 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="text-sm font-semibold">Descrição</label>
+            <textarea
+              id="description"
+              rows="3"
+              value={form.description}
+              onChange={(e) => setForm({ ...form, description: e.target.value })}
+              placeholder="Descreva o produto"
+              className={`mt-1 w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 outline-none resize-none ${
+                errors.description ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.description && (
+              <p className="text-red-600 text-sm mt-1">{errors.description}</p>
+            )}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="text-sm font-semibold">Preço (R$)</label>
+              <input
+                type="number"
+                step="0.01"
+                value={form.price}
+                onChange={(e) => setForm({ ...form, price: e.target.value })}
+                placeholder="29.90"
+                className={`mt-1 w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 outline-none ${
+                  errors.price ? "border-red-500" : "border-gray-300"
+                }`}
+              />
+              {errors.price && (
+                <p className="text-red-600 text-sm mt-1">{errors.price}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="text-sm font-semibold">Estoque</label>
+              <input
+                type="number"
+                value={form.stock}
+                onChange={(e) => setForm({ ...form, stock: e.target.value })}
+                placeholder="10"
+                className={`mt-1 w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 outline-none ${
+                  errors.stock ? "border-red-500" : "border-gray-300"
+                }`}
+              />
+              {errors.stock && (
+                <p className="text-red-600 text-sm mt-1">{errors.stock}</p>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <label className="text-sm font-semibold">Imagem (URL)</label>
+            <input
+              value={form.image}
+              onChange={(e) => setForm({ ...form, image: e.target.value })}
+              placeholder="https://..."
+              className={`mt-1 w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-indigo-500 outline-none ${
+                errors.image ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.image && (
+              <p className="text-red-600 text-sm mt-1">{errors.image}</p>
+            )}
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-4 pt-4">
+            <button className="w-full md:w-1/2 py-3 bg-indigo-600 hover:bg-indigo-700 transition text-white font-bold rounded-xl shadow-lg">
+              💾 Salvar alterações
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="w-full md:w-1/2 py-3 border-2 border-gray-300 rounded-xl hover:bg-gray-100 transition font-semibold"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+
+        {/* DELETAR */}
+        <div className="mt-8 border-t pt-6 text-center">
+          <button
+            onClick={handleDelete}
+            className="px-6 py-3 bg-red-600 hover:bg-red-700 transition text-white font-bold rounded-xl shadow-lg"
+          >
+            🗑️ Deletar Produto
           </button>
         </div>
-      </form>
-
-      {/* Botão de Deletar Produto */}
-      <div className="mt-4 text-center">
-        <button
-          onClick={handleDelete}
-          className="px-4 py-2 text-white rounded-lg hover:bg-red-700"
-          style={{ backgroundColor: "#f02424ff" }} // gambiarra pq a cor vermelha some se fizer no classname
-        >
-          Deletar Produto
-        </button>
       </div>
     </div>
   );

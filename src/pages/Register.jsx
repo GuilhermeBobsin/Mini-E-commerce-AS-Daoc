@@ -22,53 +22,89 @@ export default function Register() {
     if (password !== confirm) return setError("As senhas não conferem.");
 
     setLoading(true);
-    const res = register({ name, email, password });
+
+    const res = await register({ name, email, password });
 
     setLoading(false);
+
     if (!res.ok) {
       setError(res.message || "Erro ao cadastrar.");
       return;
     }
 
-    
     navigate("/");
   }
 
   return (
-    <div className="max-w-md mx-auto mt-12 p-6 bg-white rounded shadow">
-      <h2 className="text-2xl mb-4">Criar conta</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 p-4">
 
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <div>
-          <label className="block text-sm">Nome (opcional)</label>
-          <input value={name} onChange={e => setName(e.target.value)} className="w-full p-2 border rounded" />
-        </div>
+      <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl p-8">
 
-        <div>
-          <label className="block text-sm">E-mail</label>
-          <input value={email} onChange={e => setEmail(e.target.value)} type="email" className="w-full p-2 border rounded" />
-        </div>
+        <h1 className="text-3xl font-extrabold text-center mb-2">
+          🛒 <span className="text-indigo-600">OsGuri</span>Store
+        </h1>
 
-        <div>
-          <label className="block text-sm">Senha</label>
-          <input value={password} onChange={e => setPassword(e.target.value)} type="password" className="w-full p-2 border rounded" />
-        </div>
+        <p className="text-center text-gray-500 mb-6">
+          Crie sua conta
+        </p>
 
-        <div>
-          <label className="block text-sm">Confirmar senha</label>
-          <input value={confirm} onChange={e => setConfirm(e.target.value)} type="password" className="w-full p-2 border rounded" />
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-5">
 
-        {error && <p className="text-red-500">{error}</p>}
+          <input
+            type="text"
+            placeholder="Nome (opcional)"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full border border-gray-300 p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none"
+          />
 
-        <div className="flex items-center gap-3">
-          <button type="submit" disabled={loading} className="px-4 py-2 bg-blue-600 text-white rounded">
-            {loading ? "Cadastrando..." : "Cadastrar"}
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full border border-gray-300 p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none"
+          />
+
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full border border-gray-300 p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none"
+          />
+
+          <input
+            type="password"
+            placeholder="Confirmar senha"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+            className="w-full border border-gray-300 p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none"
+          />
+
+          {error && (
+            <p className="text-red-500 text-center font-semibold">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition font-bold text-lg disabled:opacity-60"
+          >
+            {loading ? "Cadastrando..." : "Criar conta"}
           </button>
+        </form>
 
-          <Link to="/login" className="text-sm text-gray-600">Já tenho conta</Link>
-        </div>
-      </form>
+        <p className="text-center mt-6 text-sm text-gray-600">
+          Já tem conta?{" "}
+          <Link to="/login" className="text-indigo-600 font-bold hover:underline">
+            Entrar agora
+          </Link>
+        </p>
+
+      </div>
     </div>
   );
 }

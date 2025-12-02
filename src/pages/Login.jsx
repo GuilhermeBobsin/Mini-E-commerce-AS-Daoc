@@ -20,19 +20,26 @@ export default function Login() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        
-        <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 p-4">
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          
+      <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl p-8">
+
+        <h1 className="text-3xl font-extrabold text-center mb-2">
+          🛒 <span className="text-indigo-600">OsGuri</span>Store
+        </h1>
+
+        <p className="text-center text-gray-500 mb-6">
+          Entre na sua conta
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+
           <input
             type="email"
             placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full border border-gray-300 p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none"
           />
 
           <input
@@ -40,25 +47,30 @@ export default function Login() {
             placeholder="Senha"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
-            className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full border border-gray-300 p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none"
           />
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
+            className="w-full bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition font-bold text-lg"
           >
             Entrar
           </button>
         </form>
 
-        {erro && <p className="text-red-500 mt-4 text-center">{erro}</p>}
+        {erro && (
+          <p className="text-red-500 mt-4 text-center font-semibold">
+            {erro}
+          </p>
+        )}
 
-        <p className="text-center mt-4 text-sm">
-          Não tem conta?{" "}
-          <Link to="/register" className="text-blue-600 hover:underline">
-            Registre-se
+        <p className="text-center mt-6 text-sm text-gray-600">
+          Ainda não tem conta?{" "}
+          <Link to="/register" className="text-indigo-600 font-bold hover:underline">
+            Criar agora
           </Link>
         </p>
+
       </div>
     </div>
   );
