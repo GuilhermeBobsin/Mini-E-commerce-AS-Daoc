@@ -81,7 +81,9 @@ Também existe validação de estoque para impedir adicionar mais itens do que e
 
 
 # ========================
+
 # ONDE O CONTEXTO É CONSUMIDO
+
 # ========================
 
 Ele é usado principalmente em:
