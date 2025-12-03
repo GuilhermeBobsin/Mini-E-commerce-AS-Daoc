@@ -5,9 +5,9 @@
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-0ea5e9?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Status](https://img.shields.io/badge/Project-Finalizado-brightgreen?style=for-the-badge)
 
-===========================================
-USO DO useContext
-===========================================
+======================================================================
+# USO DO USECONTEXT
+======================================================================
 
 O projeto usa o React Context API para controlar o estado global do carrinho.
 Isso evita ficar passando props de componente para componente.
@@ -16,9 +16,9 @@ O contexto vive em:
 src/context/CartContext.jsx
 
 
-===========================================
-COMO O CONTEXTO FOI CRIADO
-===========================================
+======================================================================
+# COMO O CONTEXTO FOI CRIADO
+======================================================================
 
 Dentro do CartContext.jsx:
 
@@ -53,9 +53,9 @@ export function CartProvider({ children }) {
 ----------------------------------------------------
 
 
-===========================================
-DADOS ARMAZENADOS NO CONTEXTO
-===========================================
+======================================================================
+# DADOS ARMAZENADOS NO CONTEXTO
+======================================================================
 
 cart            → array de produtos adicionados  
 addToCart()     → adiciona  
@@ -64,7 +64,7 @@ clearCart()     → limpa tudo
 
 
 ======================================================================
-COMO O CARRINHO É MANIPULADO
+# COMO O CARRINHO É MANIPULADO
 ======================================================================
 
 addToCart(product)
@@ -80,11 +80,11 @@ clearCart()
 Também existe validação de estoque para impedir adicionar mais itens do que existem no banco.
 
 
-# ========================
+# ======================================================================
 
 # ONDE O CONTEXTO É CONSUMIDO
 
-# ========================
+# ======================================================================
 
 Ele é usado principalmente em:
 
@@ -97,7 +97,7 @@ Por quê?
 
 
 ======================================================================
-CONSUMO DA API (JSON SERVER)
+# CONSUMO DA API (JSON SERVER)
 ======================================================================
 
 O JSON Server roda em:
@@ -116,7 +116,7 @@ DELETE /products/:id
 
 
 ======================================================================
-EXEMPLOS DE REQUISIÇÕES
+# EXEMPLOS DE REQUISIÇÕES
 ======================================================================
 
 GET todos os produtos:
@@ -144,7 +144,7 @@ fetch("http://localhost:3001/products/1", { method: "DELETE" })
 
 
 ======================================================================
-TRATAMENTO DE ERROS E LOADING
+# TRATAMENTO DE ERROS E LOADING
 ======================================================================
 
 O hook:
@@ -160,7 +160,7 @@ const { data, loading, error } = useFetch(getProducts)
 
 
 ======================================================================
-CONFIGURAÇÃO DO JSON SERVER
+# CONFIGURAÇÃO DO JSON SERVER
 ======================================================================
 
 Arquivo:
@@ -174,7 +174,7 @@ Ou no package.json:
 
 
 ======================================================================
-ESTRUTURA DO PROJETO
+# ESTRUTURA DO PROJETO
 ======================================================================
 
 src/
@@ -214,7 +214,7 @@ tailwind.config.js
 README.md
 
 ======================================================================
-PÁGINAS CRIADAS
+# PÁGINAS CRIADAS
 ======================================================================
 
 Home
@@ -234,7 +234,7 @@ Página 404
 
 
 ======================================================================
-FLUXO DE NAVEGAÇÃO ENTRE ROTAS
+# FLUXO DE NAVEGAÇÃO ENTRE ROTAS
 ======================================================================
 
 Home → ver detalhes → adicionar ao carrinho → carrinho  
@@ -245,7 +245,7 @@ src/App.jsx
 
 
 ======================================================================
-FUNCIONALIDADES IMPLEMENTADAS
+# FUNCIONALIDADES IMPLEMENTADAS
 ======================================================================
 
 ✔ Listagem de produtos  
@@ -260,7 +260,7 @@ FUNCIONALIDADES IMPLEMENTADAS
 
 
 ======================================================================
-COMO RODAR O PROJETO
+# COMO RODAR O PROJETO
 ======================================================================
 
 Instalar dependências:
@@ -274,7 +274,7 @@ npx json-server --watch db.json --port 4000
 
 
 ======================================================================
-DEPENDÊNCIAS
+# DEPENDÊNCIAS
 ======================================================================
 
 "react"
