@@ -5,31 +5,9 @@
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-0ea5e9?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Status](https://img.shields.io/badge/Project-Finalizado-brightgreen?style=for-the-badge)
 
-======================================================================
-📌 SUMÁRIO
-======================================================================
-- Uso do useContext
-- Como o contexto foi criado
-- Quais dados ele armazena
-- Como o carrinho é manipulado
-- Em quais componentes é consumido e por quê
-- Consumo da API (JSON Server)
-- Endpoints utilizados
-- Exemplos de requisições
-- Tratamento de erros e loading
-- Configuração do JSON Server
-- Estrutura geral do projeto
-- Páginas criadas
-- Fluxo de navegação
-- Funcionalidades implementadas
-- Como rodar o projeto
-- Dependências instaladas
-- Como rodar o JSON Server
-
-
-======================================================================
-📚 USO DO useContext
-======================================================================
+===========================================
+USO DO useContext
+===========================================
 
 O projeto usa o React Context API para controlar o estado global do carrinho.
 Isso evita ficar passando props de componente para componente.
@@ -38,9 +16,9 @@ O contexto vive em:
 src/context/CartContext.jsx
 
 
-======================================================================
-🧠 COMO O CONTEXTO FOI CRIADO
-======================================================================
+===========================================
+COMO O CONTEXTO FOI CRIADO
+===========================================
 
 Dentro do CartContext.jsx:
 
@@ -75,9 +53,9 @@ export function CartProvider({ children }) {
 ----------------------------------------------------
 
 
-======================================================================
-🛒 DADOS ARMAZENADOS NO CONTEXTO
-======================================================================
+===========================================
+DADOS ARMAZENADOS NO CONTEXTO
+===========================================
 
 cart            → array de produtos adicionados  
 addToCart()     → adiciona  
@@ -86,7 +64,7 @@ clearCart()     → limpa tudo
 
 
 ======================================================================
-🧩 COMO O CARRINHO É MANIPULADO
+COMO O CARRINHO É MANIPULADO
 ======================================================================
 
 addToCart(product)
@@ -103,7 +81,7 @@ Também existe validação de estoque para impedir adicionar mais itens do que e
 
 
 ======================================================================
-📦 ONDE O CONTEXTO É CONSUMIDO
+ONDE O CONTEXTO É CONSUMIDO
 ======================================================================
 
 Ele é usado principalmente em:
@@ -117,7 +95,7 @@ Por quê?
 
 
 ======================================================================
-🌐 CONSUMO DA API (JSON SERVER)
+CONSUMO DA API (JSON SERVER)
 ======================================================================
 
 O JSON Server roda em:
@@ -136,7 +114,7 @@ DELETE /products/:id
 
 
 ======================================================================
-📡 EXEMPLOS DE REQUISIÇÕES
+EXEMPLOS DE REQUISIÇÕES
 ======================================================================
 
 GET todos os produtos:
@@ -164,7 +142,7 @@ fetch("http://localhost:3001/products/1", { method: "DELETE" })
 
 
 ======================================================================
-⚠️ TRATAMENTO DE ERROS E LOADING
+TRATAMENTO DE ERROS E LOADING
 ======================================================================
 
 O hook:
@@ -180,7 +158,7 @@ const { data, loading, error } = useFetch(getProducts)
 
 
 ======================================================================
-🛠️ CONFIGURAÇÃO DO JSON SERVER
+CONFIGURAÇÃO DO JSON SERVER
 ======================================================================
 
 Arquivo:
@@ -194,7 +172,7 @@ Ou no package.json:
 
 
 ======================================================================
-📁 ESTRUTURA DO PROJETO
+ESTRUTURA DO PROJETO
 ======================================================================
 
 src/
@@ -234,7 +212,7 @@ tailwind.config.js
 README.md
 
 ======================================================================
-📄 PÁGINAS CRIADAS
+PÁGINAS CRIADAS
 ======================================================================
 
 Home
@@ -254,7 +232,7 @@ Página 404
 
 
 ======================================================================
-🔀 FLUXO DE NAVEGAÇÃO ENTRE ROTAS
+FLUXO DE NAVEGAÇÃO ENTRE ROTAS
 ======================================================================
 
 Home → ver detalhes → adicionar ao carrinho → carrinho  
@@ -265,7 +243,7 @@ src/App.jsx
 
 
 ======================================================================
-⚙️ FUNCIONALIDADES IMPLEMENTADAS
+FUNCIONALIDADES IMPLEMENTADAS
 ======================================================================
 
 ✔ Listagem de produtos  
@@ -280,7 +258,7 @@ src/App.jsx
 
 
 ======================================================================
-▶️ COMO RODAR O PROJETO
+COMO RODAR O PROJETO
 ======================================================================
 
 Instalar dependências:
@@ -289,16 +267,12 @@ npm install
 Rodar o frontend:
 npm run dev
 
-Rodar o JSON Server:
-npm run json-server
-
-Acessar:
-Frontend: http://localhost:5173
-API:      http://localhost:3001/products
+Rodar db.json:
+npx json-server --watch db.json --port 4000
 
 
 ======================================================================
-📦 DEPENDÊNCIAS
+DEPENDÊNCIAS
 ======================================================================
 
 "react"
