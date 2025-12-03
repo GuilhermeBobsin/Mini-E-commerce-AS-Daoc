@@ -7,7 +7,6 @@
 
 ======================================================================
 # USO DO USECONTEXT
-======================================================================
 
 O projeto usa o React Context API para controlar o estado global do carrinho.
 Isso evita ficar passando props de componente para componente.
@@ -18,7 +17,7 @@ src/context/CartContext.jsx
 
 ======================================================================
 # COMO O CONTEXTO FOI CRIADO
-======================================================================
+
 
 Dentro do CartContext.jsx:
 
@@ -55,7 +54,6 @@ export function CartProvider({ children }) {
 
 ======================================================================
 # DADOS ARMAZENADOS NO CONTEXTO
-======================================================================
 
 cart            → array de produtos adicionados  
 addToCart()     → adiciona  
@@ -65,7 +63,6 @@ clearCart()     → limpa tudo
 
 ======================================================================
 # COMO O CARRINHO É MANIPULADO
-======================================================================
 
 addToCart(product)
   Se o produto já estiver no carrinho, incrementa a quantidade.
@@ -81,10 +78,8 @@ Também existe validação de estoque para impedir adicionar mais itens do que e
 
 
 # ======================================================================
-
 # ONDE O CONTEXTO É CONSUMIDO
 
-# ======================================================================
 
 Ele é usado principalmente em:
 
@@ -98,7 +93,6 @@ Por quê?
 
 ======================================================================
 # CONSUMO DA API (JSON SERVER)
-======================================================================
 
 O JSON Server roda em:
 http://localhost:3001/products
@@ -117,7 +111,6 @@ DELETE /products/:id
 
 ======================================================================
 # EXEMPLOS DE REQUISIÇÕES
-======================================================================
 
 GET todos os produtos:
 fetch("http://localhost:3001/products")
@@ -145,7 +138,6 @@ fetch("http://localhost:3001/products/1", { method: "DELETE" })
 
 ======================================================================
 # TRATAMENTO DE ERROS E LOADING
-======================================================================
 
 O hook:
 src/hooks/useFetch.js
@@ -161,7 +153,6 @@ const { data, loading, error } = useFetch(getProducts)
 
 ======================================================================
 # CONFIGURAÇÃO DO JSON SERVER
-======================================================================
 
 Arquivo:
 db.json na raiz do projeto.
@@ -175,7 +166,6 @@ Ou no package.json:
 
 ======================================================================
 # ESTRUTURA DO PROJETO
-======================================================================
 
 src/
   api/
@@ -215,7 +205,6 @@ README.md
 
 ======================================================================
 # PÁGINAS CRIADAS
-======================================================================
 
 Home
   Lista de produtos
@@ -235,7 +224,6 @@ Página 404
 
 ======================================================================
 # FLUXO DE NAVEGAÇÃO ENTRE ROTAS
-======================================================================
 
 Home → ver detalhes → adicionar ao carrinho → carrinho  
 Home → cadastro → salvar produto → voltar para Home
@@ -246,7 +234,6 @@ src/App.jsx
 
 ======================================================================
 # FUNCIONALIDADES IMPLEMENTADAS
-======================================================================
 
 ✔ Listagem de produtos  
 ✔ Detalhes do produto  
@@ -261,7 +248,6 @@ src/App.jsx
 
 ======================================================================
 # COMO RODAR O PROJETO
-======================================================================
 
 Instalar dependências:
 npm install
@@ -275,7 +261,6 @@ npx json-server --watch db.json --port 4000
 
 ======================================================================
 # DEPENDÊNCIAS
-======================================================================
 
 "react"
 "react-router-dom"
