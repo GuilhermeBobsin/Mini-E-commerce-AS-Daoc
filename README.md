@@ -80,9 +80,9 @@ clearCart()
 Também existe validação de estoque para impedir adicionar mais itens do que existem no banco.
 
 
-======================================================================
-ONDE O CONTEXTO É CONSUMIDO
-======================================================================
+# ========================
+# ONDE O CONTEXTO É CONSUMIDO
+# ========================
 
 Ele é usado principalmente em:
 
