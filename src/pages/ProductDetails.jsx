@@ -75,10 +75,6 @@ export default function ProductDetails() {
             R$ {Number(product.price).toFixed(2)}
           </span>
 
-          <p className="text-sm text-gray-500">
-            Categoria:{" "}
-            <span className="font-semibold">{product.category}</span>
-          </p>
 
           <div className="flex flex-wrap gap-4 mt-6">
 
