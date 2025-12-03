@@ -52,7 +52,7 @@ export default function Register() {
 
           <input
             type="text"
-            placeholder="Nome (opcional)"
+            placeholder="Nom"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full border border-gray-300 p-3 rounded-full focus:ring-2 focus:ring-indigo-500 outline-none"

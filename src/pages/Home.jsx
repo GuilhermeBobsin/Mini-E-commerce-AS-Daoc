@@ -83,8 +83,8 @@ export default function Home() {
               onChange={(e) => setSortOrder(e.target.value)}
               className="px-4 py-3 rounded-xl bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
             >
-              <option value="asc">💸 Menor preço</option>
-              <option value="desc">💰 Maior preço</option>
+              <option value="asc">Menor preço</option>
+              <option value="desc">Maior preço</option>
             </select>
           </div>
 
