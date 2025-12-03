@@ -95,7 +95,7 @@ Por quê?
 # CONSUMO DA API (JSON SERVER)
 
 O JSON Server roda em:
-http://localhost:3001/products
+http://localhost:4000/products
 
 Arquivo:
 db.json
@@ -113,27 +113,27 @@ DELETE /products/:id
 # EXEMPLOS DE REQUISIÇÕES
 
 GET todos os produtos:
-fetch("http://localhost:3001/products")
+fetch("http://localhost:4000/products")
 
 GET por ID:
-fetch("http://localhost:3001/products/1")
+fetch("http://localhost:4000/products/1")
 
 POST criar produto:
-fetch("http://localhost:3001/products", {
+fetch("http://localhost:4000/products", {
   method: "POST",
   headers: {"Content-Type": "application/json"},
   body: JSON.stringify(novoProduto)
 })
 
 PUT atualizar:
-fetch("http://localhost:3001/products/1", {
+fetch("http://localhost:4000/products/1", {
   method: "PUT",
   headers: {"Content-Type": "application/json"},
   body: JSON.stringify(produtoAtualizado)
 })
 
 DELETE apagar:
-fetch("http://localhost:3001/products/1", { method: "DELETE" })
+fetch("http://localhost:4000/products/1", { method: "DELETE" })
 
 
 ======================================================================
@@ -158,10 +158,10 @@ Arquivo:
 db.json na raiz do projeto.
 
 Rodar com:
-npx json-server --watch db.json --port 3001
+npx json-server --watch db.json --port 4000
 
 Ou no package.json:
-"json-server": "json-server --watch db.json --port 3001"
+"json-server": "json-server --watch db.json --port 4000"
 
 
 ======================================================================

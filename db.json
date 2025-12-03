@@ -97,14 +97,6 @@
       "id": "12"
     },
     {
-      "name": "Placa de Vídeo RTX 4080",
-      "description": "Placa de vídeo de alto desempenho para jogos e renderização em 4K.",
-      "price": 9999,
-      "image": "https://images.kabum.com.br/produtos/fotos/520528/placa-de-video-rtx-4080-super-msi-16g-ventus-3x-oc-nvidia-geforce-16gb-gddr6x-dlss-ray-tracing_1706527331_gg.jpg",
-      "stock": 5,
-      "id": "14"
-    },
-    {
       "name": "Drone com Câmera 4K",
       "description": "Drone dobrável com câmera 4K, GPS, 30 minutos de autonomia de voo.",
       "price": 2599.9,
