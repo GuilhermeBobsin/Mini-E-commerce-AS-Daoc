@@ -1,100 +1,156 @@
 {
   "products": [
     {
-      "name": "Cafeteira Elétrica",
-      "description": "Cafeteira 1.5L, 127V.",
-      "price": 199.9,
-      "image": "https://catalog.livelo.com.br/MZL%2FPRD3816096%2FSKU4726833%2FMEDIUM%2F464174111%2FCafeteira-Eltrica-Philco-PCF40A-Preta-Preto-220V.jpeg",
-      "stock": 5,
+      "name": "Notebook Ultrabook X10",
+      "description": "Notebook fino e leve, tela de 14 polegadas Full HD, processador Core i7, 16GB RAM, SSD 512GB.",
+      "price": 5499.9,
+      "image": "https://imgs.pontofrio.com.br/1572740432/1xg.jpg",
+      "stock": 10,
       "id": "1"
     },
     {
-      "id": "2",
-      "name": "Mochila Tech",
-      "description": "Mochila 20L, resistente à água.",
-      "price": 249.5,
-      "image": "https://cdn.cs.1worldsync.com/8e/58/8e589421-5117-4a88-813a-59ab2b5c4399.jpg",
-      "stock": 0
+      "name": "Smartphone Pro Max 256GB",
+      "description": "Celular de última geração, câmera tripla de 64MP, tela OLED de 6.7 polegadas, 256GB de armazenamento.",
+      "price": 6999,
+      "image": "https://horizonplay.fbitsstatic.net/img/p/apple-iphone-14-pro-max-256gb-5g-vitrine-tela-super-retina-xdr-oled-6-7-cor-roxo-profundo-150352/336944.jpg?w=670&h=670&v=no-value",
+      "stock": 8,
+      "id": "2"
     },
     {
-      "id": "a34e",
-      "name": "Smartwatch Fit",
-      "description": "Relógio inteligente com monitor cardíaco e notificações.",
-      "price": 299.9,
-      "image": "https://image-us.samsung.com/SamsungUS/samsungbusiness/mobile/wearables/smartwatches/gw-fe-pink-gold/SM-R861_001_Front_Pink_Gold_1600x1200.jpg?$default-400-jpg$",
-      "stock": 12
+      "name": "Fone de Ouvido Bluetooth Noise Cancelling",
+      "description": "Fone over-ear sem fio, cancelamento de ruído ativo, bateria de longa duração (40h).",
+      "price": 799.5,
+      "image": "https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/jxagfpyj/file.png",
+      "stock": 35,
+      "id": "3"
     },
     {
-      "id": "3617",
-      "name": "Fone Bluetooth Pro",
-      "description": "Fone de ouvido sem fio com cancelamento de ruído.",
-      "price": 189.9,
-      "image": "https://www.philips.com.br/c-dam/b2c/category-pages/sound-and-vision/headphones/master/homepage/hero-product-shb2515.png",
-      "stock": 8
+      "name": "Smart TV QLED 55 Polegadas 4K",
+      "description": "Televisão inteligente 4K, tecnologia QLED, taxa de atualização de 120Hz.",
+      "price": 3899.9,
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/br/qn55q65dagxzd/gallery/br-qled-q60d-501242-qn55q65dagxzd-540575674",
+      "stock": 6,
+      "id": "4"
     },
     {
-      "id": "5011",
-      "name": "Teclado Mecânico RGB",
-      "description": "Teclado mecânico com iluminação RGB e switches blue.",
-      "price": 349.9,
-      "image": "https://a-static.mlcdn.com.br/470x352/teclado-mecanico-gamer-redragon-dark-avenger-rgb-switch-outemu-blue-abnt2-k568rgb-1/onlineshopping/pog031/258899e82ab0113ca376885b0bbc7817.jpeg",
-      "stock": 15
+      "name": "Console de Videogame Última Geração",
+      "description": "Console de alta performance, SSD ultrarrápido, suporte a 8K.",
+      "price": 4500,
+      "image": "https://vivo.com.br/content/dam/vivo-sites/vivo-com-br/homepage/imagens/aparelhos/sony-playstation-5-406x406.png",
+      "stock": 15,
+      "id": "5"
     },
     {
-      "id": "5012",
-      "name": "Mouse Gamer X",
-      "description": "Mouse gamer 7200 DPI, 7 botões programáveis.",
-      "price": 129.9,
-      "image": "https://blog.akihana.com.br/wp-content/uploads/2025/04/Logitech-G203.jpg",
-      "stock": 30
+      "name": "Tablet 10.2 polegadas",
+      "description": "Tablet com tela Retina, 64GB de armazenamento, ideal para estudos e entretenimento.",
+      "price": 1899,
+      "image": "https://http2.mlstatic.com/D_Q_NP_998576-MLA93504832737_092025-O.webp",
+      "stock": 22,
+      "id": "6"
     },
     {
-      "id": "5013",
-      "name": "Monitor 24'' Full HD",
-      "description": "Monitor 24 polegadas, 75Hz, painel IPS.",
-      "price": 899.9,
-      "image": "https://catalog.livelo.com.br/MZL%2FPRD3823810%2FSKU4736536%2FMEDIUM%2F412876903%2FMonitor-Gamer-AOC-24-Full-HD-180Hz-Gaming-G4-24G4P-HDMI-DisplayPort-Base-Ajustvel.jpeg",
-      "stock": 7
+      "name": "Roteador Wi-Fi 6 Mesh Tri-Band",
+      "description": "Roteador de última geração, cobre até 500m², alta velocidade e estabilidade.",
+      "price": 1199.9,
+      "image": "https://www.cudy.com/cdn/shop/files/WR3000E-2.0--1.png?v=1758013017",
+      "stock": 18,
+      "id": "7"
     },
     {
-      "id": "5014",
-      "name": "Cadeira Gamer Comfort",
-      "description": "Cadeira ergonômica com ajustes e apoio lombar.",
-      "price": 999.9,
-      "image": "https://catalog.livelo.com.br/MZL%2FPRD3055430%2FSKU3766227%2FMEDIUM%2F296311070%2FCadeira-Gamer-Techni-Sport-Reclinvel-Giratria.jpeg",
-      "stock": 4
+      "name": "Webcam Full HD com Microfone",
+      "description": "Webcam 1080p, 30fps, foco automático e microfone embutido com redução de ruído.",
+      "price": 249.9,
+      "image": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/245683/Webcam-Full-HD-1080p-Com-Microfone-USB-Vis-o-360-graus_1723670806_gg.jpg",
+      "stock": 45,
+      "id": "8"
     },
     {
-      "id": "5015",
-      "name": "HD Externo 1TB",
-      "description": "HD portátil 1TB, USB 3.0.",
-      "price": 329.9,
-      "image": "https://tryb.com.br/img/400x300/hd-externo-1-tera-2-5-seagate-3-0-usb-1000gb_18608.jpg",
-      "stock": 20
+      "name": "Impressora Multifuncional Tanque de Tinta",
+      "description": "Impressora, copiadora e scanner. Tecnologia Tanque de Tinta, alto rendimento.",
+      "price": 950,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA_v6HiMk9eFrrMQJQHtVn0hSvT8Y-HaCt1A&s",
+      "stock": 12,
+      "id": "9"
     },
     {
-      "id": "5016",
-      "name": "Carregador Turbo 25W",
-      "description": "Carregador rápido compatível com Android.",
+      "name": "Assistente Virtual Inteligente (Speaker)",
+      "description": "Speaker inteligente com comando de voz, controle de casa e reprodução de música.",
+      "price": 359.9,
+      "image": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/507357/Assistente-Virtual-Amazon-Echo-Dot-5-Smart-Speaker-Com-Alexa_1704389890_gg.jpg",
+      "stock": 30,
+      "id": "10"
+    },
+    {
+      "name": "Câmera de Segurança Wi-Fi Externa",
+      "description": "Câmera de monitoramento externa Full HD, visão noturna e à prova d'água.",
+      "price": 429.9,
+      "image": "https://cdn.leroymerlin.com.br/products/camera_de_seguranca_externa_wi_fi_elsys_90936160_0001_600x600.jpg",
+      "stock": 25,
+      "id": "11"
+    },
+    {
+      "name": "Docking Station USB-C Multiportas",
+      "description": "Adaptador USB-C com portas HDMI, USB 3.0, Ethernet e Leitor de Cartão.",
+      "price": 219,
+      "image": "https://m.media-amazon.com/images/I/61YMroj7nuL.jpg",
+      "stock": 40,
+      "id": "12"
+    },
+    {
+      "name": "Placa de Vídeo RTX 4080",
+      "description": "Placa de vídeo de alto desempenho para jogos e renderização em 4K.",
+      "price": 9999,
+      "image": "https://images.kabum.com.br/produtos/fotos/520528/placa-de-video-rtx-4080-super-msi-16g-ventus-3x-oc-nvidia-geforce-16gb-gddr6x-dlss-ray-tracing_1706527331_gg.jpg",
+      "stock": 5,
+      "id": "14"
+    },
+    {
+      "name": "Drone com Câmera 4K",
+      "description": "Drone dobrável com câmera 4K, GPS, 30 minutos de autonomia de voo.",
+      "price": 2599.9,
+      "image": "https://m.media-amazon.com/images/I/71CsCDa2vTL._AC_UF894,1000_QL80_.jpg",
+      "stock": 9,
+      "id": "15"
+    },
+    {
+      "name": "Pen Drive USB 3.0 128GB",
+      "description": "Pen drive de alta velocidade, capacidade de 128GB, compatível com USB 3.0.",
       "price": 89.9,
-      "image": "https://tryb.com.br/img/400x300/carregador-turbo-power-30-micro-usbv8-motorola_21440.jpg",
-      "stock": 50
+      "image": "https://m.media-amazon.com/images/I/61I2bY5VYpL.jpg",
+      "stock": 70,
+      "id": "16"
     },
     {
-      "id": "6ee2",
-      "name": "Notebook positivo BOOM 4GB",
-      "description": "Notebook de entrada para uso doméstico",
-      "price": 2199.9,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlrXmQvwQaSY4hk89uRorkE-dCCTZb4FtsYg&s",
-      "stock": 2
+      "name": "Mini Projetor Portátil Smart",
+      "description": "Projetor compacto com Android TV embutido, resolução HD, Wi-Fi e Bluetooth.",
+      "price": 1450,
+      "image": "https://m.magazineluiza.com.br/a-static/420x420/projetor-hy300-mini-projetor-portatil-5g-wifi-6-bluetooth-5-0-smart-projetor-android-11-8500-lumens-projetor-led-4k-1-a1/primestoreme/hy300/b18609bcc8404678c09a25b20888aac1.jpeg",
+      "stock": 14,
+      "id": "17"
     },
     {
-      "id": "ce28",
-      "name": "lapis",
-      "description": "verde",
-      "price": 2,
-      "image": "data:image/jpeg;base64,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",
-      "stock": 2
+      "name": "Teclado Ergonômico Sem Fio",
+      "description": "Teclado dividido e inclinado para melhor postura, conexão sem fio 2.4GHz.",
+      "price": 389.5,
+      "image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/h/i/high_resolution_png-ergo_k860_top_us_1.png",
+      "stock": 28,
+      "id": "18"
+    },
+    {
+      "name": "Microfone Condensador USB Profissional",
+      "description": "Microfone de estúdio USB para streaming e gravação de voz, padrão polar cardióide.",
+      "price": 529.9,
+      "image": "https://m.media-amazon.com/images/I/61+6rw+o9AL.jpg",
+      "stock": 11,
+      "id": "19"
+    },
+    {
+      "name": "Cabo de Carregamento Rápido USB-C 2 Metros",
+      "description": "Cabo resistente de nylon trançado, suporta carregamento rápido de até 60W.",
+      "price": 59.9,
+      "image": "https://m.media-amazon.com/images/I/61l5i6CSE6L._AC_UF1000,1000_QL80_.jpg",
+      "stock": 90,
+      "id": "20"
     }
   ]
 }
