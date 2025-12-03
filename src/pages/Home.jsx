@@ -91,7 +91,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* LOADING / ERRO */}
+      
       {loading && <Loading />}
       {error && (
         <div className="text-red-500 text-center mb-6">
