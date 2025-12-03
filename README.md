@@ -268,3 +268,10 @@ npx json-server --watch db.json --port 4000
 "postcss"
 "autoprefixer"
 "json-server"
+
+======================================================================
+# VÍDEOS DOS INTEGRANTES EXPLICANDO:
+
+**Guilherme Trevisan Bobsin**:  [drive](https://drive.google.com/file/d/1pTCJh1_D3eiXAbQY76zuwFNr-tT6bajF/view?usp=sharing)
+**Régis Bopsin da Luz**:  
+**Marcelo Carniel**:  
