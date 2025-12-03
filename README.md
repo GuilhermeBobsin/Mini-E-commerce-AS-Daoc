@@ -272,6 +272,8 @@ npx json-server --watch db.json --port 4000
 ======================================================================
 # VÍDEOS DOS INTEGRANTES EXPLICANDO:
 
-**Guilherme Trevisan Bobsin**:  [drive](https://drive.google.com/file/d/1pTCJh1_D3eiXAbQY76zuwFNr-tT6bajF/view?usp=sharing)
+**Guilherme Trevisan Bobsin**:  [Clique Aqui](https://drive.google.com/file/d/1pTCJh1_D3eiXAbQY76zuwFNr-tT6bajF/view?usp=sharing)
+
 **Régis Bopsin da Luz**:  
+
 **Marcelo Carniel**:  
